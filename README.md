@@ -59,13 +59,13 @@ Battery Spotter uses machine learning and computer vision technologies to identi
 
    The alert monitoring system provides a real-time view of the conveyor belt. It alerts workers when batteries are detected so they can pick the batteries and discard them properly, for example by putting them in a sandbag or other secure container.
 
-   ![realtime](https://github.com/aborghi/BatterySpotter/images/realtime.png)
+   ![realtime](images/realtime.png)
 
 3. Dashboard - monitoring system
 
    The dashboard enables a more global monitoring of the system and includes the list of cameras connected (online/offline camera and last ping), the number of batteries detected over time for each camera, as well as additional useful information. This information can be used to monitor the detection of batteries in the facility and track statistics at different scales (locations, periods of time,...).
 
-   ![dashboard](https://github.com/aborghi/BatterySpotter/images/dashboard.png)
+   ![dashboard](images/dashboard.png)
 
 **WHY IS IT STILL NOT ALREADY SOLVED?**
 
@@ -100,7 +100,7 @@ Simplified diagram and step-by-step description of the flow of our solution:
 
 ### Solution demo video
 
-[![Watch the video](https://img.youtube.com/vi/jrvhFf69Kbc/hqdefault.jpg)](https://youtu.be/jrvhFf69Kbc)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jrvhFf69Kbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Project development roadmap
 
@@ -121,9 +121,7 @@ See below for our proposed roadmap for Battery Spotter after Call for Code 2023.
 
 ### Technical walkthrough
 
-[![Technical video]](https://youtu.be/UmTokEfV_6U)
-
-[![Watch the video](https://img.youtube.com/vi/UmTokEfV_6U/hqdefault.jpg)](https://youtu.be/jrvhFf69Kbc)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UmTokEfV_6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Our custom model relies on the [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) neural network implemented in TensorFlow and is trained on publicly available data from [Kaggle](https://www.kaggle.com/datasets/markcsizmadia/object-detection-batteries-dices-and-toy-cars) and [Roboflow](https://roboflow.com/). We also used the [ZeroWaste](http://ai.bu.edu/zerowaste/) dataset for testing and demonstration purposes. We provide a checkpoint that anyone can load to reproduce our results as well as a TFLite version that can be run on mobile and edge devices. We also provide the different scripts to run our different components (client, server, real time view, dashboard) and to deploy our model on IBM Watson Machine Learning.
 
