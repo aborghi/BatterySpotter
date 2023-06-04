@@ -171,6 +171,8 @@ python3 server.py --mode=ibm_watson_machine_learning --port=SERVER_PORT --ibm_ap
 
 * Raspberry PI client with support for camera:
 
+Install system dependencies, create virtual environment and install Python dependencies:
+
 ```
 sudo apt-get install python3-numpy python3-opencv
 
@@ -179,17 +181,23 @@ source venv_client_rpi_cam/bin/activate
 pip install -r requirements_client_rpi_cam.txt
 ```
 
+To launch the Raspberry Pi client with camera support:
+
 ```
 python3 client_rpi_cam.py --inference_server_address=INFERENCE_SERVER_ADDRESS --inference_server_port=INFERENCE_SERVER_PORT --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
 ```
 
 * Test client (uses image instead of camera):
 
+Create virtual environment and install Python dependencies:
+
 ```
 python3 -m venv venv_client_test
 source venv_client_test/bin/activate
 pip install -r requirements_client_test.txt
 ```
+
+To launch test client that reads test images instead of using live camera feed:
 
 ```
 python3 client_test.py --inference_server_address=INFERENCE_SERVER_ADDRESS --inference_server_port=INFERENCE_SERVER_PORT --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
@@ -211,7 +219,7 @@ To launch the dashboard:
 python3 gui.py --mode=dashboard --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT
 ```
 
-To launch the realtime monitoring for client CLIENT_NAME:
+To launch real time monitoring interface for client CLIENT_NAME:
 
 ```
 python3 gui.py --mode=realtime --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
