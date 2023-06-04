@@ -79,7 +79,7 @@ More detail is available in our [website](http://batteryspotterwebsite.s3-web.eu
 
 ### Other IBM technology used
 
-- IBM Cloud Object Storage - website and TensorFlow model
+- IBM Cloud Object Storage - [website](http://batteryspotterwebsite.s3-web.eu-gb.cloud-object-storage.appdomain.cloud/) and TensorFlow model
 
 ### Solution architecture
 
