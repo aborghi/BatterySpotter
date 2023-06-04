@@ -1,0 +1,4 @@
+numpy==1.23.5
+opencv-python==4.7.0.72
+paho-mqtt==1.6.1
+pyzmq==25.0.2

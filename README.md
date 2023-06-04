@@ -1,10 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Community](https://img.shields.io/badge/Join-Community-blue)](https://developer.ibm.com/callforcode/solutions/projects/get-started/)
 
-_INSTRUCTIONS: This GitHub repository serves as a template you can use to create a new project for the [2023 Call for Code Global Challenge](https://developer.ibm.com/callforcode/global-challenge/). Use the **Use this template** button to create a new version of this repository and start entering content for your own Call for Code submission project. Make sure you have [registered for the 2023 Call for Code Global Challenge](https://developer.ibm.com/callforcode/global-challenge/register/) to access resources and full project submission instructions. Remove any "INSTRUCTIONS" sections when you are ready to submit your project._
-
-_New to Git and GitHub? This free online course will get you up to speed quickly: [Getting Started with Git and GitHub](https://www.coursera.org/learn/getting-started-with-git-and-github)_.
-
-# Replace this heading with your team/submission name
+# Battery Spotter
 
 - [Project summary](#project-summary)
   - [The issue we are hoping to solve](#the-issue-we-are-hoping-to-solve)
@@ -33,103 +29,206 @@ _INSTRUCTIONS: Complete all required deliverable sections below._
 
 ### The issue we are hoping to solve
 
-REPLACE THIS SENTENCE with a short description, 2-3 sentences in length, of the specific sustainability problem your solution is meant to address.
+By 2030 we expect our worldwide battery consumption to generate 1.9M tonnes of battery waste every year. Improperly discarded batteries can be punctured, leak dangerous heavy metals and materials (polluting soils) and self-combust (polluting the air). This is especially dangerous when batteries are thrown in the bin as they cause massive fires in recycling facilities.
 
 ### How our technology solution can help
 
-REPLACE THIS SENTENCE with a short description of your team's solution, in about 10 words.
+Battery Spotter detects batteries in real-time, alerts humans and collects data.
 
 ### Our idea
 
-INSTRUCTIONS: Replace this paragraph with a longer description of your solution. In about 500 words, describe your solution in more detail. Include the real-world problem you identified, describe the technological solution you have created, and explain how it’s an improvement over existing solutions. You can supply additional documentation in this source code repository that you link to as well.
+**A PRESSING PROBLEM**
 
-More detail is available in our [description document](./docs/DESCRIPTION.md).
+By 2030 we expect our worldwide battery consumption to generate 1.9M tonnes of battery waste every year. But what happens to our batteries when they don’t hold the charge or stop working properly?
+
+While many countries have battery recycling systems in place, they all rely on individuals to bring their batteries to a collection point in order to be processed and recycled. However, most people are not aware of nearby collection points or they don’t want the hassle of keeping and bringing their batteries themselves. According to Business Waste UK, 40% of Brits never recycled their batteries and 75% of the people interrogated didn’t know about the environmental damage it could cause. 
+
+When batteries are thrown in the general waste bin, they most likely end up in landfills where they will leak heavy metals and pollute soils over time. Alternatively, they can be incinerated which means the hazardous chemicals will burn and pollute our atmosphere. 
+
+When batteries are thrown away with recycling waste, they are the cause of dangerous fires as batteries can be punctured and self-combust. Given that recycling facilities process dry and highly combustible waste (cardboard, plastic, paper), fires spread extremely fast putting at risk workers and homes nearby. These are not independent incidents. In the UK only we’re talking about 700 fires every year costing the government over 158M GBP. While we can find data from rich countries such as the UK or the USA, the problem is also affecting poorer countries that not only have to deal with their own waste but also the waste dumped from all parts of the world. 
+
+**OUR SOLUTION**
+
+Battery Spotter uses machine learning and computer vision technologies to identify batteries early on the conveyor belt, alert workers to pick them up, and collect data to better size and track the problem. 
+
+1. Battery identification - custom model
+
+   The facility instals any off the shelf cameras as input devices to collect images of the waste on conveyor belts. Our custom model (neural network) is used to identify batteries in real time from these images. Several cameras can be placed in the same facility, for example at different steps of the process, but also be connected from different recycling facilities to collect data from different sites.
+
+2. Worker Alert System - real time view
+
+   The alert monitoring system provides a real-time view of the conveyor belt. It alerts workers when batteries are detected so they can pick the batteries and discard them properly, for example by putting them in a sandbag or other secure container.
+
+   ![realtime](https://github.com/aborghi/BatterySpotter/images/realtime.png)
+
+3. Dashboard - monitoring system
+
+   The dashboard enables a more global monitoring of the system and includes the list of cameras connected (online/offline camera and last ping), the number of batteries detected over time for each camera, as well as additional useful information. This information can be used to monitor the detection of batteries in the facility and track statistics at different scales (locations, periods of time,...).
+
+   ![dashboard](https://github.com/aborghi/BatterySpotter/images/dashboard.png)
+
+**WHY IS IT STILL NOT ALREADY SOLVED?**
+
+As previously highlighted, batteries can be well recycled in dedicated facilities but the process to separate and collect the batteries is left to individuals and is poorly known. 
+
+Innovative startups using computer vision technology to improve our recycling capabilities exist, but they are still in their early days and do not specialise in batteries. They also require to adapt the recycling processes or installations already in place which slows down their adoption.
+
+More detail is available in our [website](http://batteryspotterwebsite.s3-web.eu-gb.cloud-object-storage.appdomain.cloud/).
 
 ## Technology implementation
 
 ### IBM AI service(s) used
 
-_INSTRUCTIONS: Included here is a list of commonly used IBM AI services. Remove any services you did not use, or add others from the linked catalog not already listed here. Leave only those included in your solution code. Provide details on where and how you used each IBM AI service to help judges review your implementation. Remove these instructions._
-
-- [IBM Natural Language Understanding](https://cloud.ibm.com/catalog/services/natural-language-understanding) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
-- [Watson Assistant](https://cloud.ibm.com/catalog/services/watson-assistant) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
-- [Watson Discovery](https://cloud.ibm.com/catalog/services/watson-discovery) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
-- [Watson Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
-- [Watson Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) - WHERE AND HOW THIS IS USED IN OUR SOLUTION
-- List any additional [IBM AI services](https://cloud.ibm.com/catalog?category=ai#services) used or remove this line
+- IBM Watson Machine Learning - model inference (see inference server)
 
 ### Other IBM technology used
 
-INSTRUCTIONS: List any other IBM technology used in your solution and describe how each component was used. If you can provide links to/details on exactly where these were used in your code, that would help the judges review your submission.
+- IBM Cloud Object Storage - website and TensorFlow model
 
 ### Solution architecture
 
-Diagram and step-by-step description of the flow of our solution:
+Simplified diagram and step-by-step description of the flow of our solution:
 
-![Video transcription/translaftion app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
+![architecture](images/architecture.png)
 
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
+1. The user sets up one or several cameras in their recycling facility and connects each of them to our system via a separate client (potentially running on a single lightweight computer such as a Raspberry Pi).
+2. Clients connect to an inference server that detects batteries via our custom machine learning model (neural network) running on IBM Watson Machine Learning. Detections are sent back to their respective clients. No heavy computations are run at the facility. Clients share results to our monitoring systems via MQTT.
+3. Results are displayed in real time to the facility workers to alert them when a battery is detected so that they can process them accordingly.
+4. A dashboard provides a global view of the entire system to monitor the different events (battery detections) that occurred at the facility. It displays statistics for the different cameras and allows users to generate views about past events for any given period of time (for instance throughout the last hour or the last month).
 
 ## Presentation materials
 
-_INSTRUCTIONS: The following deliverables should be officially posted to your My Team > Submissions section of the [Call for Code Global Challenge resources site](https://cfc-prod.skillsnetwork.site/), but you can also include them here for completeness. Replace the examples seen here with your own deliverable links._
-
 ### Solution demo video
 
-[![Watch the video](https://raw.githubusercontent.com/Liquid-Prep/Liquid-Prep/main/images/readme/IBM-interview-video-image.png)](https://youtu.be/vOgCOoy_Bx0)
+[![Watch the video](https://img.youtube.com/vi/jrvhFf69Kbc/hqdefault.jpg)](https://youtu.be/jrvhFf69Kbc)
 
 ### Project development roadmap
 
-The project currently does the following things.
+The project currently comprises 3 main components: our custom machine learning model, the real-time monitoring system to alert workers and the dashboard tracking battery detection per minute/day/week/month/year.
 
-- Feature 1
-- Feature 2
-- Feature 3
+In the future, we would like to:
 
-In the future we plan to...
+- Improve our model.
+- Develop a mobile app to use a smartphone camera as input device. This would also make the adoption of our solution easier in poorer countries.
+- Identify and work with a recycling facility partner to deploy our system in real life and gather feedback to test and improve our UI/UX.
+- Explore potential funding options and grants to take the project further including the possibility of working on a solution that picks up batteries and removes them from the conveyor belt so that workers don’t have to do it themselves.
 
-See below for our proposed schedule on next steps after Call for Code 2023 submission.
+See below for our proposed roadmap for Battery Spotter after Call for Code 2023.
 
-![Roadmap](./images/roadmap.jpg)
+![roadmap](images/roadmap.png)
 
 ## Additional details
 
-_INSTRUCTIONS: The following deliverables are suggested, but **optional**. Additional details like this can help the judges better review your solution. Remove any sections you are not using._
+### Technical walkthrough
+
+[![Technical video]](https://youtu.be/UmTokEfV_6U)
+
+[![Watch the video](https://img.youtube.com/vi/UmTokEfV_6U/hqdefault.jpg)](https://youtu.be/jrvhFf69Kbc)
+
+Our custom model relies on the [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) neural network implemented in TensorFlow and is trained on publicly available data from [Kaggle](https://www.kaggle.com/datasets/markcsizmadia/object-detection-batteries-dices-and-toy-cars) and [Roboflow](https://roboflow.com/). We also used the [ZeroWaste](http://ai.bu.edu/zerowaste/) dataset for testing and demonstration purposes. We provide a checkpoint that anyone can load to reproduce our results as well as a TFLite version that can be run on mobile and edge devices. We also provide the different scripts to run our different components (client, server, real time view, dashboard) and to deploy our model on IBM Watson Machine Learning.
+
+For testing we use a Raspberry Pi Zero 2 W and a Raspberry Pi High Quality Camera.
 
 ### How to run the project
 
-INSTRUCTIONS: In this section you add the instructions to run your project on your local machine for development and testing purposes. You can also add instructions on how to deploy the project in production.
+We describe for each component how to install dependencies and how to launch them. For testing purposes, all the components can be run on the same machine. As a prerequisite, a MQTT broker needs to run. MQTT_BROKER_ADDRESS and MQTT_BROKER_PORT respectively correspond to the address of the machine running the MQTT broker and its port. The first step consists in deploying the model to IBM Watson Machine Learning. Then, the inference server needs to be started so that clients can connect to it. Two clients are provided: one designed for Raspberry Pi and the Raspberry Pi Camera Module and another one processing images instead of a live feed from a camera. The latter is useful for development, testing and interoperability with third party components. Finally, one or both GUIs can be started: the real time view enables to monitor a specific client/camera, while the dashboard provides a global view on the entire system (multiple clients).
 
-### Live demo
+* Deploy model:
 
-You can find a running system to test at...
+Create virtual environment and install dependencies: 
 
-See our [description document](./docs/DESCRIPTION.md) for log in credentials.
+```
+python3 -m venv venv_deploy
+source venv_deploy/bin/activate
+pip install -r requirements_deploy.txt
+```
 
----
+This step requires to have an IBM Watson Machine Learning instance ready with a deployment space. To deploy our custom model to IBM Cloud (replace IBM_API_KEY, IBM_URL and IBM_SPACE_ID with your values):
 
-_INSTRUCTIONS: You can remove the below section from your specific project README._
+```
+python3 deploy.py --ibm_api_key=IBM_API_KEY --ibm_url=IBM_URL --ibm_space_id=IBM_SPACE_ID --model_path=resources/efficient-d0-bat.tar.gz
+```
 
-## About this template
+On success, the script will provide the IBM_DEPLOYMENT_UID to use to run the inference server.
 
-### Contributing
+* Inference server:
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Create virtual environment and install dependencies:
 
-### Versioning
+```
+python3 -m venv venv_server
+source venv_server/bin/activate
+pip install -r requirements_server.txt
+```
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+To launch the inference server with local inference (the server listens to clients on port SERVER_PORT):
+
+```
+python3 server.py --mode=local --port=SERVER_PORT --local_model_path=resources/efficientdet-d0-bat.tflite
+```
+
+To launch the inference server with remote inference via IBM Watson Machine Learning:
+
+```
+python3 server.py --mode=ibm_watson_machine_learning --port=SERVER_PORT --ibm_api_key=IBM_API_KEY --ibm_url=IBM_URL --ibm_space_id=IBM_SPACE_ID --ibm_deployment_uid=IBM_DEPLOYMENT_UID
+```
+
+* Raspberry PI client with support for camera:
+
+```
+sudo apt-get install python3-numpy python3-opencv
+
+python3 -m venv venv_client_rpi_cam
+source venv_client_rpi_cam/bin/activate
+pip install -r requirements_client_rpi_cam.txt
+```
+
+```
+python3 client_rpi_cam.py --inference_server_address=INFERENCE_SERVER_ADDRESS --inference_server_port=INFERENCE_SERVER_PORT --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
+```
+
+* Test client (uses image instead of camera):
+
+```
+python3 -m venv venv_client_test
+source venv_client_test/bin/activate
+pip install -r requirements_client_test.txt
+```
+
+```
+python3 client_test.py --inference_server_address=INFERENCE_SERVER_ADDRESS --inference_server_port=INFERENCE_SERVER_PORT --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
+```
+
+* GUIs (realtime view and dashboard):
+
+Create virtual environment and install dependencies:
+
+```
+python3 -m venv venv_gui
+source venv_gui/bin/activate
+pip install -r requirements_gui.txt
+```
+
+To launch the dashboard:
+
+```
+python3 gui.py --mode=dashboard --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT
+```
+
+To launch the realtime monitoring for client CLIENT_NAME:
+
+```
+python3 gui.py --mode=realtime --mqtt_broker_address=MQTT_BROKER_ADDRESS --mqtt_broker_port=MQTT_BROKER_PORT --client_name=CLIENT_NAME
+```
+
+
+
+## About
 
 ### Authors
 
-<a href="https://github.com/Call-for-Code/Project-Sample/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Call-for-Code/Project-Sample" />
-</a>
-
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+- Amandine Flachs
+- Alexandre Borghi
 
 ### License
 
