@@ -96,7 +96,7 @@ Simplified diagram and step-by-step description of the flow of our solution:
 
 ### Solution demo video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jrvhFf69Kbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch the video](images/main_video_thumbnail.png)](https://youtu.be/jrvhFf69Kbc)
 
 ### Project development roadmap
 
@@ -117,7 +117,7 @@ See below for our proposed roadmap for Battery Spotter after Call for Code 2023.
 
 ### Technical walkthrough
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UmTokEfV_6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![Watch the technical video](images/technical_video_thumbnail.png)](https://youtu.be/UmTokEfV_6U)
 
 Our custom model relies on the [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) neural network implemented in TensorFlow and is trained on publicly available data from [Kaggle](https://www.kaggle.com/datasets/markcsizmadia/object-detection-batteries-dices-and-toy-cars) and [Roboflow](https://roboflow.com/). We also used the [ZeroWaste](http://ai.bu.edu/zerowaste/) dataset for testing and demonstration purposes. We provide a checkpoint that anyone can load to reproduce our results as well as a TFLite version that can be run on mobile and edge devices. We also provide the different scripts to run our different components (client, server, real time view, dashboard) and to deploy our model on IBM Watson Machine Learning.
 
