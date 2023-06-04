@@ -123,6 +123,8 @@ Our custom model relies on the [EfficientDet](https://github.com/google/automl/t
 
 For testing we use a Raspberry Pi Zero 2 W and a Raspberry Pi High Quality Camera.
 
+<img src="images/raspberry_pi_camera.jpg" alt="raspberry_pi_camera" align="left" style="zoom:10%;" />
+
 ### How to run the project
 
 We describe for each component how to install dependencies and how to launch them. For testing purposes, all the components can be run on the same machine. As a prerequisite, a MQTT broker needs to run. MQTT_BROKER_ADDRESS and MQTT_BROKER_PORT respectively correspond to the address of the machine running the MQTT broker and its port. The first step consists in deploying the model to IBM Watson Machine Learning. Then, the inference server needs to be started so that clients can connect to it. Two clients are provided: one designed for Raspberry Pi and the Raspberry Pi Camera Module and another one processing images instead of a live feed from a camera. The latter is useful for development, testing and interoperability with third party components. Finally, one or both GUIs can be started: the real time view enables to monitor a specific client/camera, while the dashboard provides a global view on the entire system (multiple clients).
