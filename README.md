@@ -123,7 +123,7 @@ Our custom model relies on the [EfficientDet](https://github.com/google/automl/t
 
 For testing we use a Raspberry Pi Zero 2 W and a Raspberry Pi High Quality Camera.
 
-<img src="images/raspberry_pi_camera.png" alt="raspberry_pi_camera" align="left"/>
+<img src="images/raspberry_pi_camera.png" alt="raspberry_pi_camera"/>
 
 ### How to run the project
 
