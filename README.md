@@ -49,7 +49,7 @@ Battery Spotter uses machine learning and computer vision technologies to identi
 
 1. Battery identification - custom model
 
-   The facility instals any off the shelf cameras as input devices to collect images of the waste on conveyor belts. Our custom model (neural network) is used to identify batteries in real time from these images. Several cameras can be placed in the same facility, for example at different steps of the process, but also be connected from different recycling facilities to collect data from different sites.
+   The facility installs any off the shelf cameras as input devices to collect images of the waste on conveyor belts. Our custom model (neural network) is used to identify batteries in real time from these images. Several cameras can be placed in the same facility, for example at different steps of the process, but also be connected from different recycling facilities to collect data from different sites.
 
 2. Worker Alert System - real time view
 
@@ -69,7 +69,7 @@ As previously highlighted, batteries can be well recycled in dedicated facilitie
 
 Innovative startups using computer vision technology to improve our recycling capabilities exist, but they are still in their early days and do not specialise in batteries. They also require to adapt the recycling processes or installations already in place which slows down their adoption.
 
-More detail is available in our [website](http://batteryspotterwebsite.s3-web.eu-gb.cloud-object-storage.appdomain.cloud/).
+More detail is available on our [website](http://batteryspotterwebsite.s3-web.eu-gb.cloud-object-storage.appdomain.cloud/).
 
 ## Technology implementation
 
